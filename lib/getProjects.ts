@@ -1,29 +1,24 @@
-import fs from 'fs'
-import path from 'path'
-import matter from 'gray-matter'
+import fs from "fs";
+import path from "path";
 
-export type Project = {
-  slug: string
-  title: string
-  description: string
-  image: string
-}
+import matter from "gray-matter";
 
-export function getAllProjects(): Project[] {
-  const dir = path.join(process.cwd(), 'content/projects')
-  const files = fs.readdirSync(dir)
+const projectsDirectory = path.join(process.cwd(), "content/projects");
 
-  return files.map((file) => {
-    const slug = file.replace(/\.mdx$/, '')
-    const filePath = path.join(dir, file)
-    const fileContents = fs.readFileSync(filePath, 'utf8')
-    const { data } = matter(fileContents)
+export function getAllProjects() {
+  const filenames = fs.readdirSync(projectsDirectory);
+
+  return filenames.map((filename) => {
+    const slug = filename.replace(/\.mdx$/, "");
+    const filePath = path.join(projectsDirectory, filename);
+    const fileContent = fs.readFileSync(filePath, "utf8");
+    const { data } = matter(fileContent);
 
     return {
       slug,
       title: data.title,
-      description: data.description,
       image: data.image,
-    }
-  })
+      description: data.description,
+    };
+  });
 }

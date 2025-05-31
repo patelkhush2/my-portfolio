@@ -1,15 +1,16 @@
-import { Footer } from '@/components/footer'
-import * as FadeIn from '@/components/motion/staggers/fade'
-import ImagesGrid from './image-grid'
+import { Footer } from "@/components/footer";
+import * as FadeIn from "@/components/motion/staggers/fade";
 
-const Spacer = () => <div style={{ marginTop: '24px' }} />
+import ImagesGrid from "./image-grid";
+
+const Spacer = () => <div style={{ marginTop: "24px" }} />;
 
 type Project = {
-  slug: string
-  title: string
-  image: string
-  description: string
-}
+  slug: string;
+  title: string;
+  image: string;
+  description: string;
+};
 
 export default function Home({ projects }: { projects: Project[] }) {
   return (
@@ -25,9 +26,8 @@ export default function Home({ projects }: { projects: Project[] }) {
       <Spacer />
       <FadeIn.Item>
         <p>
-          Based from Toronto, holds a passion for blending design & development.
-          Specializing in Brand, Product, Web & VR/AR. Focusing on
-          human-computer interaction to generate innovative experiences.
+          Based from Toronto, holds a passion for blending design & development. Specializing in Brand, Product, Web & VR/AR. Focusing on human-computer
+          interaction to generate innovative experiences.
         </p>
       </FadeIn.Item>
       <FadeIn.Item>
@@ -39,5 +39,5 @@ export default function Home({ projects }: { projects: Project[] }) {
         <Footer />
       </FadeIn.Item>
     </FadeIn.Container>
-  )
+  );
 }
