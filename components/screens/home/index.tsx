@@ -19,15 +19,15 @@ export default function Home({ projects }: { projects: Project[] }) {
         <div className="flex justify-between">
           <div>
             <h1>Khush Patel</h1>
-            <h2>Design Engineer</h2>
+            <h2>Product Design</h2>
           </div>
         </div>
       </FadeIn.Item>
       <Spacer />
       <FadeIn.Item>
         <p>
-          Based from Toronto, holds a passion for blending design & development. Specializing in Brand, Product, Web & VR/AR. Focusing on human-computer
-          interaction to generate innovative experiences.
+          Based from Toronto, holds a passion for blending design & development. Specializing in Brand, Product, Web & VR/AR. Focusing on Human-Computer
+          Interaction to generate innovative experiences.
         </p>
       </FadeIn.Item>
       <FadeIn.Item>

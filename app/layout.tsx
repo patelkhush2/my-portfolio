@@ -9,12 +9,12 @@ import { Inter } from "next/font/google";
 
 export const metadata: Metadata = {
   title: "Khush Patel – Portfolio",
-  description: "Design Engineer focused on Brand, Product, Web & Interaction Experiences.",
+  description: "",
   openGraph: {
     title: "Khush Patel – Portfolio",
     url: "https://khushpatel.work",
     siteName: "Khush Patel",
-    locale: "en_US",
+    locale: "en_CA",
     type: "website",
   },
 };
