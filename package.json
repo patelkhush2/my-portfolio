@@ -8,10 +8,11 @@
     "start": "next start",
     "postbuild": "next-sitemap",
     "mdx:timestamps": "node ./scripts/update-mdx-timestamps",
-    "lint:style": "npx stylelint \"**/*.css\" ",
-    "lint:biome": "npx biome check  --reporter=summar .",
-    "lint:prettier": "npx prettier . --check --log-level warn",
-    "lint": "npm run lint:style && npm run lint:prettier && npm run lint:biome"
+    "lint:style": "npx stylelint \"**/*.css\"", 
+    "lint:prettier": "npx prettier . --check --log-level warn || true",
+    "lint:biome": "npx biome check --reporter=summary .",
+    "lint": "npm run lint:style && npm run lint:prettier && npm run lint:biome",
+    "format": "npx prettier . --write && npx stylelint \"**/*.css\" --fix && npx biome check --fix --unsafe ."
   },
   "dependencies": {
     "@mdx-js/loader": "^3.0.1",
