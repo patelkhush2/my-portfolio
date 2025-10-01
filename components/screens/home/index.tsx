@@ -26,7 +26,7 @@ export default function Home({ projects }: { projects: Project[] }) {
       <Spacer />
       <FadeIn.Item>
         <p>
-          Based from Toronto, holds a passion for blending design & development. Specializing in Brand, Product, Web & VR/AR. Focusing on Human-Computer
+          Based from Toronto, holds a passion for blending design & development. Specializing in Brand, Product, Web whilst focusing on Human-Computer
           Interaction to generate innovative experiences.
         </p>
       </FadeIn.Item>
