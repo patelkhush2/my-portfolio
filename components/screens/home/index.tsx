@@ -19,7 +19,7 @@ export default function Home({ projects }: { projects: Project[] }) {
         <div className="flex justify-between">
           <div>
             <h1>Khush Patel</h1>
-            <h2>Product Design</h2>
+            <h2>Product Designer</h2>
           </div>
         </div>
       </FadeIn.Item>
