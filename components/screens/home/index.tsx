@@ -26,7 +26,8 @@ export default function Home({ projects }: { projects: Project[] }) {
       <Spacer />
       <FadeIn.Item>
         <p>
-          I’m a product designer with a background in computer science, curious about how systems shape human experience. I design across brand, product, and web—bridging design and development to create interfaces that feel intuitive and inevitable. My work focuses on clarity, interaction, and the small details that make digital experiences feel alive.
+          I’m a product designer with a background in computer science, curious about how systems shape human experience. I design across brand, product, and web—bridging design and development to create interfaces that feel intuitive and inevitable. 
+          My work focuses on clarity, interaction, and the small details that make digital experiences feel alive.
         </p>
       </FadeIn.Item>
       <FadeIn.Item>
