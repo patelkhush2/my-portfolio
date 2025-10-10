@@ -26,8 +26,7 @@ export default function Home({ projects }: { projects: Project[] }) {
       <Spacer />
       <FadeIn.Item>
         <p>
-          Based from Toronto, holds a passion for blending design & development. Specializing in Brand, Product, Web whilst focusing on Human-Computer
-          Interaction to generate innovative experiences.
+          I’m a product designer with a background in computer science, curious about how systems shape human experience. I design across brand, product, and web—bridging design and development to create interfaces that feel intuitive and inevitable. My work focuses on clarity, interaction, and the small details that make digital experiences feel alive.
         </p>
       </FadeIn.Item>
       <FadeIn.Item>
