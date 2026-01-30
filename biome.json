@@ -7,12 +7,7 @@
   },
   "files": {
     "ignoreUnknown": false,
-    "ignore": [
-      "**/node_modules/**",
-      "**/.pnpm-store/**",
-      "**/.vercel/**",
-      "public/**"
-    ],
+    "ignore": ["**/node_modules/**", "**/.pnpm-store/**", "**/.vercel/**", "public/**"],
     "maxSize": 2000000
   },
   "formatter": {
