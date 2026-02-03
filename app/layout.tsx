@@ -4,8 +4,6 @@ import type { Metadata } from "next";
 
 import { Providers } from "@/components/providers";
 
-import clsx from "clsx";
-
 export const metadata: Metadata = {
   title: "Khush Patel – Portfolio",
   description: "",
