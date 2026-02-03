@@ -9,7 +9,7 @@ const Footer = () => {
         <Link href="https://www.linkedin.com/in/kptls/" text="LinkedIn " underline />
       </div>
       <div className="text-muted text-small">
-        <p>info@khushpatel.work</p>
+      <Link href="mailto:khussshpatel@gmail.com" text="EMAIL" underline />
       </div>
     </div>
   );

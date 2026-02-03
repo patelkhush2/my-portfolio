@@ -5,7 +5,6 @@ import type { Metadata } from "next";
 import { Providers } from "@/components/providers";
 
 import clsx from "clsx";
-import { Inter } from "next/font/google";
 
 export const metadata: Metadata = {
   title: "Khush Patel – Portfolio",
@@ -19,18 +18,13 @@ export const metadata: Metadata = {
   },
 };
 
-const inter = Inter({
-  subsets: ["latin"],
-  display: "swap",
-});
-
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={clsx(inter.className)} suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning>
       <body>
         <Providers>
           <main className="mx-auto max-w-screen-md overflow-x-hidden px-6 py-24 md:overflow-x-visible ">
