@@ -53,9 +53,9 @@ export default function MDXImage({ caption, alt, ...props }: MDXImageProps) {
         <Dialog.Content className="fixed left-1/2 top-1/2 z-50 max-h-[90vh] w-[90vw] max-w-7xl -translate-x-1/2 -translate-y-1/2 rounded-lg bg-background p-4 focus:outline-none">
           <Dialog.Close asChild>
             <button
+              type="button"
               className="absolute right-10 top-9 z-10 flex h-8 w-8 items-center justify-center rounded-full bg-background/80 text-foreground hover:bg-background transition-colors"
-              aria-label="Close"
-            >
+              aria-label="Close">
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                 <path
                   d="M12 4L4 12M4 4l8 8"
