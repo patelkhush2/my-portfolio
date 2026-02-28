@@ -6,6 +6,7 @@ import FootnoteBackReference from "@/components/footnote/back-reference";
 import FootnoteForwardReference from "@/components/footnote/forward-reference";
 import MDXImage from "@/components/image";
 import Link from "@/components/link";
+import MDXVideo from "@/components/video";
 import Preview from "@/components/preview";
 import { cn } from "@/lib/cn";
 
@@ -31,6 +32,9 @@ const components: MDXComponents = {
   },
   Preview: ({ children, codeblock }) => <Preview codeblock={codeblock ? codeblock : undefined}>{children}</Preview>,
   Image: ({ caption, alt, ...props }) => <MDXImage {...props} caption={caption} alt={alt} />,
+  Video: ({ src, poster, caption, alt, ...props }) => (
+    <MDXVideo src={src} poster={poster} caption={caption} alt={alt} {...props} />
+  ),
   h2: ({ children, id }: React.HTMLAttributes<HTMLHeadingElement>) => {
     if (id?.includes("footnote-label")) {
       return null;
@@ -115,6 +119,9 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {
     ...components,
     Image: ({ caption, alt, ...props }) => <MDXImage {...props} caption={caption} alt={alt} />,
+    Video: ({ src, poster, caption, alt, ...props }) => (
+      <MDXVideo src={src} poster={poster} caption={caption} alt={alt} {...props} />
+    ),
   };
 }
 
