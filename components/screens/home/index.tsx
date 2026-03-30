@@ -2,6 +2,7 @@ import { Footer } from "@/components/footer";
 import * as FadeIn from "@/components/motion/staggers/fade";
 
 import ImagesGrid from "./image-grid";
+import LiveStatus from "./live-status";
 
 const Spacer = () => <div style={{ marginTop: "24px" }} />;
 
@@ -20,6 +21,7 @@ export default function Home({ projects }: { projects: Project[] }) {
           <div>
             <h1>Khush Patel</h1>
             <h2>Designer</h2>
+            <LiveStatus />
           </div>
         </div>
       </FadeIn.Item>

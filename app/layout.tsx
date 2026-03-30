@@ -5,10 +5,10 @@ import type { Metadata } from "next";
 import { Providers } from "@/components/providers";
 
 export const metadata: Metadata = {
-  title: "Khush Patel – Portfolio",
+  title: "Khush Patel",
   description: "",
   openGraph: {
-    title: "Khush Patel – Portfolio",
+    title: "Khush Patel",
     url: "https://khushpatel.work",
     siteName: "Khush Patel",
     locale: "en_CA",
