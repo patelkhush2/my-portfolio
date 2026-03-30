@@ -76,10 +76,9 @@ export default function LiveStatus() {
   );
 
   return (
-    <div className="mt-2 flex flex-wrap items-center justify-between gap-2 text-muted">
-      <span>{LOCATION.city}</span>
+    <div className="text-muted text-right whitespace-nowrap leading-none">
       <span>
-        {timeText}, {temperature === null ? "--" : `${temperature}°C`} {conditions}
+        {LOCATION.city} {timeText}, {temperature === null ? "--" : `${temperature}°C`} {conditions}
       </span>
     </div>
   );

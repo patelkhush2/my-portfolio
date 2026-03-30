@@ -17,10 +17,12 @@ export default function Home({ projects }: { projects: Project[] }) {
   return (
     <FadeIn.Container>
       <FadeIn.Item>
-        <div className="flex justify-between">
+        <div className="flex items-start justify-between">
           <div>
             <h1>Khush Patel</h1>
             <h2>Designer</h2>
+          </div>
+          <div>
             <LiveStatus />
           </div>
         </div>
