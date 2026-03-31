@@ -76,10 +76,21 @@ export default function LiveStatus() {
   );
 
   return (
-    <div className="text-muted text-right whitespace-nowrap leading-none">
-      <span>
-        {LOCATION.city} {timeText}, {temperature === null ? "--" : `${temperature}°C`} {conditions}
-      </span>
+    <div className="text-muted flex h-full min-h-0 flex-col leading-none md:h-auto">
+      {/* Mobile: city on line 1, time + temp + weather on line 2; height matches name + Designer */}
+      <div className="flex h-full flex-col justify-between text-right md:hidden">
+        <span>{LOCATION.city}</span>
+        <span>
+          {timeText}, {temperature === null ? "--" : `${temperature}°C`} {conditions}
+        </span>
+      </div>
+      {/* Desktop: unchanged single line */}
+      <div className="hidden text-right md:block">
+        <span className="whitespace-nowrap">
+          {LOCATION.city} {timeText}, {temperature === null ? "--" : `${temperature}°C`}{" "}
+          {conditions}
+        </span>
+      </div>
     </div>
   );
 }

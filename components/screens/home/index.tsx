@@ -17,12 +17,12 @@ export default function Home({ projects }: { projects: Project[] }) {
   return (
     <FadeIn.Container>
       <FadeIn.Item>
-        <div className="flex items-start justify-between">
-          <div>
-            <h1>Khush Patel</h1>
+        <div className="flex items-stretch justify-between gap-3">
+          <div className="shrink-0">
+            <h1 className="whitespace-nowrap">Khush Patel</h1>
             <h2>Designer</h2>
           </div>
-          <div>
+          <div className="flex min-h-0 min-w-0 flex-1 flex-col self-stretch md:w-auto md:flex-none md:self-start">
             <LiveStatus />
           </div>
         </div>
