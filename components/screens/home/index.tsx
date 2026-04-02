@@ -31,7 +31,7 @@ export default function Home({ projects }: { projects: Project[] }) {
       <FadeIn.Item>
         <p>
           I’m a designer with a background in computer science, curious about how systems shape human experience. I design across brand, product, and
-          web-bridging together with development. I enjoy immersing in design that solves problems in intuitive ways focusing on clarity and interaction.
+          web — bridging together with engineering. I enjoy immersing in design that solves problems in intuitive ways, focusing on clarity and interaction.
         </p>
       </FadeIn.Item>
       <FadeIn.Item>
