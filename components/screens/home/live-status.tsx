@@ -10,9 +10,9 @@ type WeatherResponse = {
 };
 
 const LOCATION = {
-  city: process.env.NEXT_PUBLIC_CITY_NAME || "Waterloo, Ontario",
-  latitude: Number(process.env.NEXT_PUBLIC_CITY_LAT || "43.4643"),
-  longitude: Number(process.env.NEXT_PUBLIC_CITY_LON || "-80.5204"),
+  city: process.env.NEXT_PUBLIC_CITY_NAME || "Toronto, Ontario",
+  latitude: Number(process.env.NEXT_PUBLIC_CITY_LAT || "43.6532"),
+  longitude: Number(process.env.NEXT_PUBLIC_CITY_LON || "-79.3832"),
   timezone: process.env.NEXT_PUBLIC_CITY_TZ || "America/Toronto",
 };
 
