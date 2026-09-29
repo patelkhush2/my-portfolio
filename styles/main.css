@@ -66,12 +66,10 @@
 
   html {
     @apply text-default text-foreground bg-background;
-    text-transform: uppercase;
-    font-family: "Geist Mono", monospace;
-    font-weight: 300;
-    font-size: 12px;
-    line-height: 14px;
-    letter-spacing: .5px;
+    font-family: "Geist", sans-serif;
+    font-weight: 400;
+    line-height: 15px;
+    letter-spacing: 0.3px;
     color: #545454;
 
     h1,
@@ -79,6 +77,7 @@
     h4,
     h5,
     h6 {
+      font-size: 14px;
       font-weight: 400;
     }
 
@@ -91,6 +90,8 @@
 
     p {
       color: #545454;
+      text-transform: none;
+      line-height: 150%;
     }
 
     sub {

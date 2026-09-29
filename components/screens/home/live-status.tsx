@@ -10,9 +10,9 @@ type WeatherResponse = {
 };
 
 const LOCATION = {
-  city: process.env.NEXT_PUBLIC_CITY_NAME || "Waterloo, Ontario",
-  latitude: Number(process.env.NEXT_PUBLIC_CITY_LAT || "43.4643"),
-  longitude: Number(process.env.NEXT_PUBLIC_CITY_LON || "-80.5204"),
+  city: process.env.NEXT_PUBLIC_CITY_NAME || "Toronto, Ontario",
+  latitude: Number(process.env.NEXT_PUBLIC_CITY_LAT || "43.6532"),
+  longitude: Number(process.env.NEXT_PUBLIC_CITY_LON || "-79.3832"),
   timezone: process.env.NEXT_PUBLIC_CITY_TZ || "America/Toronto",
 };
 
@@ -76,7 +76,7 @@ export default function LiveStatus() {
   );
 
   return (
-    <div className="text-muted flex h-full min-h-0 flex-col leading-none md:h-auto">
+    <div className="text-muted flex h-full min-h-0 flex-col leading-none normal-case md:h-auto">
       {/* Mobile: city on line 1, time + temp + weather on line 2; height matches name + Designer */}
       <div className="flex h-full flex-col justify-between text-right md:hidden">
         <span>{LOCATION.city}</span>
