@@ -1,4 +1,5 @@
 import { Footer } from "@/components/footer";
+import Link from "@/components/link";
 import * as FadeIn from "@/components/motion/staggers/fade";
 
 import ImagesGrid from "./image-grid";
@@ -36,6 +37,15 @@ I’m drawn to ideas that are still taking shape - figuring out what they should
 
 My work moves between concept, systems, interaction, and visual direction to make those ideas clear, distinct, and real.
         </p>
+      </FadeIn.Item>
+      <FadeIn.Item>
+        <div className="mt-6">
+          <Link
+            href="https://cal.com/khush-patel/30min"
+            text="Book a Call"
+            className="inline-flex items-center justify-center rounded-[30px] bg-[#000] px-[15px] py-[10px] text-[12px] text-[#fff] leading-[150%] hover:opacity-100"
+          />
+        </div>
       </FadeIn.Item>
       <FadeIn.Item>
         <ImagesGrid projects={projects} /> {/* 👈 Pass it down */}
