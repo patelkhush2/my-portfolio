@@ -39,7 +39,15 @@ export default async function Page({ params }: { params: { slug: string } }) {
 
       {data.image && (
         <FadeIn.Item>
-          <Image src={data.image} alt={data.title} width={800} height={500} className="rounded-xl border border-border " />
+          <Image
+            src={data.image}
+            alt={data.title}
+            width={800}
+            height={500}
+            sizes="(max-width: 768px) calc(100vw - 96px), 624px"
+            priority
+            className="rounded-xl border border-border "
+          />
         </FadeIn.Item>
       )}
 

@@ -1,0 +1,61 @@
+## 00 / Introduction
+
+### AI Assistance. A Deliberate Edit.
+
+Product Design · Note-Taking AI
+
+Forma explores how AI can help shape a note while keeping the writer in control. The interaction has three parts: choose selected text or the full note, review a suggested change, and decide whether to apply it. This case study focuses on how those choices work together.
+
+## 01 / The Opportunity
+
+### Help With A Draft Without Losing Control Of It.
+
+A note can contain finished ideas alongside rough fragments. Before an AI action changes anything, the writer needs to understand which part of the note it will affect and have a chance to judge the suggestion. That led to the central design question: how can someone understand the scope and effect of an AI edit before it changes their writing? This is the premise behind the concept, rather than a finding from user research.
+
+## 02 / Defining the Product
+
+### Scope, Review, Apply.
+
+The experience is organized around three decisions. First, choose whether the action applies to selected text or the full note. Next, review the suggestion alongside the original. Finally, apply the change or dismiss it and keep the original note. The prototype needs to make those choices clear without requiring a separate conversation interface.
+
+## 03 / Designing the Experience
+
+### Decision 01 — Make The Scope Explicit.
+
+Selected text and a full note represent different intentions, so the action should clearly name which content it will affect. A local action should stay connected to the selected passage, while a note-wide action needs an explicit full-note scope. This adds a choice but makes the effect easier to predict. Whether people notice and understand that distinction still needs to be tested.
+
+<Media name="scope" />
+
+### Decision 02 — Preview Before Applying.
+
+Generating a suggestion should not immediately replace the note. A preview lets the writer compare the suggestion with the original and decide whether it preserves their meaning. That adds a step, so the review needs to make comparison easy without turning a small edit into a cumbersome process.
+
+<Media name="preview" />
+
+### Decision 03 — Separate Generation From Acceptance.
+
+Apply and Dismiss lead to different outcomes: Apply accepts the edit within the chosen scope, while Dismiss preserves the original note. Loading, failed generation, and changes to a selection also need clear behavior. Those remain open design questions until the corresponding prototype states are confirmed.
+
+## 04 / Designing the System
+
+### Consistent States Across Both Scopes.
+
+Selected-text and full-note actions should use the same review and acceptance patterns. The scope label changes, but Apply and Dismiss should keep the same meaning. The sequence to document is Original → Request → Preview → Apply or Dismiss, using real prototype states and marking any missing states as proposed work. The comparison below shows a note before and after accepting an edit; it does not represent a historical redesign or a measured improvement.
+
+<Media name="before" />
+
+<Media name="after" />
+
+## 05 / The Product
+
+### From A Note To A Deliberate Change.
+
+The journey starts with a note: choose selected text or the full note, request an AI action, review the preview, then apply or dismiss it and return to writing. The recording below shows the existing prototype. Any missing interactions in this sequence still need to be added rather than implied by the case study.
+
+<Media name="walkthrough" />
+
+## 06 / Reflection
+
+### Make The Effect Understandable.
+
+An AI editing experience depends on more than the wording it generates. Scope, comparison, and acceptance determine whether a writer can understand and direct the change. The next step is to ask people to revise one passage and then a whole note, observing whether they can predict the affected scope, compare the preview, and dismiss a suggestion without worrying about losing their work. No usability results or measured outcomes are available yet; this interaction model remains a direction to evaluate.

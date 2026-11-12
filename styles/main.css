@@ -66,32 +66,35 @@
 
   html {
     @apply text-default text-foreground bg-background;
-    font-family: "Geist", sans-serif;
+
+    font-family: Geist, sans-serif;
     font-weight: 400;
-    line-height: 15px;
-    letter-spacing: 0.3px;
+    line-height: 150%;
     color: #545454;
+    letter-spacing: 0.3px;
 
     h1,
+    h2,
     h3,
     h4,
     h5,
     h6 {
       font-size: 14px;
       font-weight: 400;
+      line-height: 150%;
+      color: var(--gray-12);
     }
 
-    h2,
-    h3,
     sub,
     sup {
       @apply text-muted;
     }
 
-    p {
-      color: #545454;
-      text-transform: none;
+    p,
+    li {
       line-height: 150%;
+      color: var(--gray-10);
+      text-transform: none;
     }
 
     sub {

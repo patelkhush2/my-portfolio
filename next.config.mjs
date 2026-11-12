@@ -6,6 +6,7 @@ import rehypeSlug from "rehype-slug";
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  images: { formats: ["image/webp"] },
   pageExtensions: ["md", "mdx", "tsx", "ts", "jsx", "js"],
 };
 

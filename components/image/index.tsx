@@ -20,17 +20,14 @@ export default function MDXImage({ caption, alt, ...props }: MDXImageProps) {
   return (
     <Dialog.Root open={isOpen} onOpenChange={setIsOpen}>
       <Dialog.Trigger asChild>
-        <motion.div
-          className="my-6 flex cursor-pointer flex-col justify-end gap-2"
-          whileHover={{ scale: 0.975, opacity: 0.9 }}
-        >
+        <motion.div className="my-6 flex cursor-pointer flex-col justify-end gap-2" whileHover={{ scale: 0.975, opacity: 0.9 }}>
           <div className="relative h-full w-full overflow-hidden rounded-large border border-border">
             <Image
-              unoptimized
               alt={alt}
               width={1000}
               height={1000}
-              sizes="100vw"
+              sizes="(max-width: 768px) calc(100vw - 96px), 624px"
+              quality={85}
               draggable={false}
               style={{
                 objectFit: "contain",
@@ -50,37 +47,31 @@ export default function MDXImage({ caption, alt, ...props }: MDXImageProps) {
 
       <Dialog.Portal>
         <Dialog.Overlay className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm transition-opacity" />
-        <Dialog.Content className="fixed left-1/2 top-1/2 z-50 max-h-[90vh] w-[90vw] max-w-7xl -translate-x-1/2 -translate-y-1/2 rounded-lg bg-background p-4 focus:outline-none">
+        <Dialog.Content className="-translate-x-1/2 -translate-y-1/2 fixed top-1/2 left-1/2 z-50 max-h-[90vh] w-[90vw] max-w-7xl rounded-lg bg-background p-4 focus:outline-none">
           <Dialog.Close asChild>
             <button
               type="button"
-              className="absolute right-10 top-9 z-10 flex h-8 w-8 items-center justify-center rounded-full bg-background/80 text-foreground hover:bg-background transition-colors"
-              aria-label="Close">
+              className="absolute top-9 right-10 z-10 flex h-8 w-8 items-center justify-center rounded-full bg-background/80 text-foreground transition-colors hover:bg-background"
+              aria-label="Close"
+            >
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                <path
-                  d="M12 4L4 12M4 4l8 8"
-                  stroke="currentColor"
-                  strokeWidth="1"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
+                <path d="M12 4L4 12M4 4l8 8" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </button>
           </Dialog.Close>
           <div className="relative flex h-full w-full items-center justify-center">
             <Image
-              unoptimized
               alt={alt}
               src={href}
               width={2000}
               height={2000}
+              sizes="(max-width: 1422px) 90vw, 1280px"
+              quality={85}
               className="max-h-[85vh] w-auto object-contain"
               style={{ objectFit: "contain" }}
             />
           </div>
-          {caption && (
-            <div className="mt-4 text-center text-sm text-muted">{caption}</div>
-          )}
+          {caption && <div className="mt-4 text-center text-muted text-sm">{caption}</div>}
         </Dialog.Content>
       </Dialog.Portal>
     </Dialog.Root>

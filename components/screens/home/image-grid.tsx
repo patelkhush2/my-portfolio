@@ -16,7 +16,14 @@ export default function ImagesGrid({ projects }: { projects: Project[] }) {
       {projects.map((project) => (
         <Link href={`/images/${project.slug}`} key={project.slug}>
           <div className="group relative cursor-pointer overflow-hidden rounded-xl border border-border">
-            <Image src={project.image} alt={project.title} width={800} height={600} className="h-full w-full rounded-2xl object-cover" />
+            <Image
+              src={project.image}
+              alt={project.title}
+              width={800}
+              height={600}
+              sizes="(max-width: 639px) calc(100vw - 48px), 350px"
+              className="h-full w-full rounded-2xl object-cover"
+            />
           </div>
         </Link>
       ))}
