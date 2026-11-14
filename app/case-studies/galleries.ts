@@ -1,9 +1,15 @@
 const image = (name: string) => ({ src: `/images/spots/${encodeURIComponent(name)}.png`, label: name });
 
 export const spotsDecisions = [
-  [image("web - home/explore default"), image("web - home/explore 5")],
+  [image("web - home/explore default"), image("web - home/explore 5"), image("list page")],
   [image("chat default"), image("chat attached state"), image("chat selected+attached state")],
-  [image("chat 8"), image("chat 11 itinerary pop"), image("chat 11 itinerary schedule"), image("chat 11 itinerary full trip view 2")],
+  [
+    image("chat 8"),
+    image("chat 11 itinerary pop"),
+    image("chat accommodation prompts"),
+    image("chat 11 itinerary schedule"),
+    image("chat 11 itinerary full trip view 2"),
+  ],
 ];
 
 export const spotsSystems = [
