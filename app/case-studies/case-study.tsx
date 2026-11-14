@@ -41,15 +41,6 @@ export default function CaseStudy({ study }: { study: Study }) {
         <h1 className="text-lg">{study.name}</h1>
       </FadeIn.Item>
       <FadeIn.Item>
-        <nav aria-label="Case Study Contents" className="flex flex-wrap gap-x-6 gap-y-2">
-          {sections.map((section) => (
-            <a href={`#${section.id}`} className="text-small" key={section.id}>
-              {section.number} · {section.title}
-            </a>
-          ))}
-        </nav>
-      </FadeIn.Item>
-      <FadeIn.Item>
         <article className="prose max-w-none space-y-6">
           {sections.map((section) => (
             <section id={section.id} key={section.id}>

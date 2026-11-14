@@ -17,7 +17,7 @@ All case studies use one layout, one typography system, and the same seven secti
 - `app/case-studies/structure.ts`: the section order, titles, anchors, and validation. Missing, empty, reordered, or renamed sections fail with a clear error rather than silently disappearing.
 - `content/case-studies/<slug>.mdx`: the project's narrative. Spots comes from the user-supplied case study, with capitalization changed to Spots and visual notes replaced by media slots. Forma is an explicit concept narrative using the same structure, with unknown ownership and unverified outcomes identified.
 - `app/case-studies/content.ts`: project registration, listing summary, cover, and named media/gallery slots. No narrative paragraphs belong here.
-- `app/case-studies/case-study.tsx`: shared layout, numbered contents, section rendering, media resolution, and next-project navigation. No project-specific layout branches.
+- `app/case-studies/case-study.tsx`: shared layout, section rendering, media resolution, and next-project navigation. No project-specific layout branches.
 - `app/case-studies/gallery.tsx`: shared canvas, swipe/arrow navigation, fade, and enlarged viewer. Visible galleries advance every three seconds with a 200ms opacity-only fade. They pause on hover, keyboard focus, an enlarged view, or a hidden tab; reduced-motion preferences disable automatic cycling. Only the next slide is prefetched and decoded. Galleries never determine the narrative order.
 - `styles/main.css`: existing shared site typography. Dark regular-weight headings, muted body copy, and 150% line height.
 
