@@ -15,19 +15,11 @@ const spotsSystems = [
 export const spotsGalleries = {
   discovery: {
     label: "Discovery",
-    slides: [
-      image("web - home/explore default", "Explore Feed"),
-      image("web - home/explore 5", "Save To A List"),
-      image("hotel - booking", "Stay Details And Booking"),
-    ],
+    slides: [image("web - home/explore default", "Explore Feed"), image("web - home/explore 5", "Save To A List"), image("list page", "List To Plan")],
   },
   planning: {
     label: "Conversational Planning",
-    slides: [
-      image("chat default", "Planning Home"),
-      image("chat attached state", "Contextual Input"),
-      image("chat selected+attached state", "Destination Context"),
-    ],
+    slides: [image("chat default", "Planning Home"), image("chat attached state", "Contextual Input"), image("hotel - booking", "Stay Details And Booking")],
   },
   itinerary: {
     label: "From Conversation To Itinerary",
