@@ -1,4 +1,4 @@
-import { spotsDecisions, spotsSystems } from "./galleries";
+import { spotsDecisions, spotsListIterations, spotsSystems } from "./galleries";
 
 export type Asset = { id: string; title: string; instruction: string; format: string; src?: string; video?: boolean };
 export type Study = {
@@ -32,6 +32,7 @@ export const studies: Study[] = [
       planning: { label: "Conversational Planning", slides: spotsDecisions[1] },
       itinerary: { label: "From Conversation To Itinerary", slides: spotsDecisions[2] },
       system: { label: "Designing The System", slides: spotsSystems },
+      lists: { label: "List Page Iterations", slides: spotsListIterations },
     },
     media: {},
   },

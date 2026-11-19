@@ -1,7 +1,12 @@
 const image = (name: string, caption: string) => ({ src: `/images/spots/${encodeURIComponent(name)}.png`, label: name, caption });
 
 export const spotsDecisions = [
-  [image("web - home/explore default", "Explore Feed"), image("web - home/explore 5", "Save To A List"), image("list page", "List To Plan")],
+  [
+    image("web - home/explore default", "Explore Feed"),
+    image("web - home/explore 5", "Save To A List"),
+    image("list page 3", "Collected List"),
+    image("list page", "List To Plan"),
+  ],
   [image("chat default", "Planning Home"), image("chat attached state", "Contextual Input"), image("chat selected+attached state", "Destination Context")],
   [
     image("chat 8", "Trip Options"),
@@ -11,6 +16,8 @@ export const spotsDecisions = [
     image("chat 11 itinerary full trip view 2", "Full Trip View"),
   ],
 ];
+
+export const spotsListIterations = [image("list page 1", "List Page, Iteration 1"), image("list page 3", "List Page, Final Iteration")];
 
 export const spotsSystems = [
   { src: "/images/spots/systems/systems-0.png", label: "System Overview", caption: "Working File", canvas: true },
