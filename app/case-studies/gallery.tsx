@@ -79,22 +79,23 @@ export default function Gallery({ slides, label }: { slides: Slide[]; label: str
     observer.observe(element);
     return () => observer.disconnect();
   }, []);
+  // Warm every slide (both sizes) once the gallery is on screen, so swiping never waits on a download.
   useEffect(() => {
     if (!visible) return;
-    const timer = window.setTimeout(() => {
-      const neighbor = slides[(active + 1) % slides.length];
-      if (neighbor) {
-        const image = new window.Image();
-        const optimized = optimizedImage(neighbor);
-        image.sizes = optimized.sizes || "";
-        image.srcset = optimized.srcSet || "";
-        image.src = optimized.src;
-        image.decoding = "async";
-        void image.decode().catch(() => {});
-      }
-    }, 150);
-    return () => window.clearTimeout(timer);
-  }, [active, slides, visible]);
+    const warm = slides.map((item) => {
+      const image = new window.Image();
+      const optimized = optimizedImage(item);
+      image.sizes = optimized.sizes || "";
+      image.srcset = optimized.srcSet || "";
+      image.src = optimized.src;
+      image.decoding = "async";
+      void image.decode().catch(() => {});
+      return image;
+    });
+    return () => {
+      warm.length = 0;
+    };
+  }, [slides, visible]);
   const slide = slides[active];
   if (!slide) return null;
 
@@ -172,26 +173,31 @@ export default function Gallery({ slides, label }: { slides: Slide[]; label: str
       </section>
       <Dialog.Portal>
         <Dialog.Overlay className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm transition-opacity" />
-        <Dialog.Content
-          aria-describedby={undefined}
-          className="-translate-x-1/2 -translate-y-1/2 fixed top-1/2 left-1/2 z-50 max-h-[90vh] w-[90vw] max-w-7xl rounded-lg bg-background p-4 focus:outline-none"
-        >
+        <Dialog.Content aria-describedby={undefined} className="-translate-x-1/2 -translate-y-1/2 fixed top-1/2 left-1/2 z-50 w-max focus:outline-none">
           <Dialog.Title className="sr-only">{slide.label}</Dialog.Title>
-          <Dialog.Close
-            className="absolute top-4 right-4 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-background/80 text-foreground"
-            aria-label="Close enlarged image"
-          >
-            ×
+          <Dialog.Close asChild>
+            <button
+              type="button"
+              className="-right-12 absolute top-0 z-10 flex h-8 w-8 items-center justify-center rounded-full bg-background/80 text-foreground transition-colors hover:bg-background"
+              aria-label="Close"
+            >
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <path d="M12 4L4 12M4 4l8 8" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </button>
           </Dialog.Close>
-          <Image
-            src={slide.src}
-            alt={slide.label}
-            width={1920}
-            height={1080}
-            sizes="(max-width: 1422px) 90vw, 1280px"
-            quality={85}
-            className="mx-auto block max-h-[85vh] w-auto max-w-full object-contain"
-          />
+          <div className="relative">
+            <Image
+              alt={slide.label}
+              src={slide.src}
+              width={0}
+              height={0}
+              sizes="min(98vw, 2048px)"
+              quality={85}
+              className="block object-contain"
+              style={{ width: "min(calc(90vw - 7rem), 1840px, calc(88vh * 16 / 9))", height: "auto", aspectRatio: "16 / 9", objectFit: "contain" }}
+            />
+          </div>
         </Dialog.Content>
       </Dialog.Portal>
     </Dialog.Root>

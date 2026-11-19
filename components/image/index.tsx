@@ -47,11 +47,12 @@ export default function MDXImage({ caption, alt, ...props }: MDXImageProps) {
 
       <Dialog.Portal>
         <Dialog.Overlay className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm transition-opacity" />
-        <Dialog.Content className="-translate-x-1/2 -translate-y-1/2 fixed top-1/2 left-1/2 z-50 max-h-[90vh] w-[90vw] max-w-7xl rounded-lg bg-background p-4 focus:outline-none">
+        <Dialog.Content aria-describedby={undefined} className="-translate-x-1/2 -translate-y-1/2 fixed top-1/2 left-1/2 z-50 w-max focus:outline-none">
+          <Dialog.Title className="sr-only">{alt}</Dialog.Title>
           <Dialog.Close asChild>
             <button
               type="button"
-              className="absolute top-9 right-10 z-10 flex h-8 w-8 items-center justify-center rounded-full bg-background/80 text-foreground transition-colors hover:bg-background"
+              className="-right-12 absolute top-0 z-10 flex h-8 w-8 items-center justify-center rounded-full bg-background/80 text-foreground transition-colors hover:bg-background"
               aria-label="Close"
             >
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -59,16 +60,16 @@ export default function MDXImage({ caption, alt, ...props }: MDXImageProps) {
               </svg>
             </button>
           </Dialog.Close>
-          <div className="relative flex h-full w-full items-center justify-center">
+          <div className="relative">
             <Image
               alt={alt}
               src={href}
-              width={2000}
-              height={2000}
-              sizes="(max-width: 1422px) 90vw, 1280px"
+              width={0}
+              height={0}
+              sizes="min(98vw, 2048px)"
               quality={85}
-              className="max-h-[85vh] w-auto object-contain"
-              style={{ objectFit: "contain" }}
+              className="block object-contain"
+              style={{ width: "min(calc(90vw - 7rem), 1840px, calc(88vh * 16 / 9))", height: "auto", aspectRatio: "16 / 9", objectFit: "contain" }}
             />
           </div>
           {caption && <div className="mt-4 text-center text-muted text-sm">{caption}</div>}
