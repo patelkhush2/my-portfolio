@@ -10,7 +10,7 @@ import { MDXRemote } from "next-mdx-remote/rsc";
 import { Media } from "./components";
 import Gallery from "./gallery";
 import { parseCaseStudy } from "./structure";
-import { Figure, Flow, Hero } from "./visuals";
+import { Figure, Hero } from "./visuals";
 
 export default function CaseStudy({ study }: { study: Study }) {
   const source = fs.readFileSync(path.join(process.cwd(), "content/case-studies", `${study.slug}.mdx`), "utf8");
@@ -30,11 +30,6 @@ export default function CaseStudy({ study }: { study: Study }) {
       const slide = study.galleries[name]?.slides[0];
       if (!slide) throw new Error(`Unknown figure ${name} in ${study.slug}.`);
       return <Figure slide={slide} />;
-    },
-    Diagram: ({ name }: { name: string }) => {
-      const diagram = study.diagrams?.[name];
-      if (!diagram) throw new Error(`Unknown diagram ${name} in ${study.slug}.`);
-      return <Flow diagram={diagram} />;
     },
     Media: ({ name }: { name: string }) => {
       const asset = study.media[name];

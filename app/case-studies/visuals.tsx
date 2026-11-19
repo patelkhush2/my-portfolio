@@ -1,7 +1,4 @@
-import type { Diagram } from "./galleries";
-
 import Image from "next/image";
-import { Fragment } from "react";
 
 type Slide = { src: string; label: string; caption?: string };
 
@@ -39,36 +36,5 @@ export function Hero({ slides, label }: { slides: Slide[]; label: string }) {
       </div>
       <div className="mt-2 text-gray-10 text-sm">{label}</div>
     </div>
-  );
-}
-
-// Editorial step diagram: labelled steps joined by thin arrows, stacked on mobile.
-export function Flow({ diagram }: { diagram: Diagram }) {
-  return (
-    <section className="my-6" aria-label={diagram.label}>
-      <div className="flex flex-col gap-3 rounded-large border border-border p-5 sm:flex-row sm:items-start sm:gap-4">
-        {diagram.steps.map((step, index) => (
-          <Fragment key={step.label}>
-            {index > 0 ? (
-              <div aria-hidden="true" className={`shrink-0 text-gray-8 text-sm leading-none ${step.src ? "sm:mt-[11%]" : "sm:mt-6"}`}>
-                <span className="sm:hidden">↓</span>
-                <span className="hidden sm:inline">→</span>
-              </div>
-            ) : null}
-            <div className="flex min-w-0 flex-1 flex-col gap-1">
-              {step.src ? (
-                <div className="relative mb-2 aspect-video w-full overflow-hidden rounded-base border border-border">
-                  <Image src={step.src} alt="" fill sizes="(max-width: 640px) calc(100vw - 96px), 200px" quality={80} className="object-cover object-top" />
-                </div>
-              ) : null}
-              <div className="text-gray-10 text-small tabular-nums">{String(index + 1).padStart(2, "0")}</div>
-              <div className="text-gray-12 text-sm">{step.label}</div>
-              <div className="text-gray-10 text-sm">{step.note}</div>
-            </div>
-          </Fragment>
-        ))}
-      </div>
-      <div className="mt-2 text-gray-10 text-sm">{diagram.caption}</div>
-    </section>
   );
 }

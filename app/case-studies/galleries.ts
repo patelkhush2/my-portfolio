@@ -1,6 +1,3 @@
-export type DiagramStep = { label: string; note: string; src?: string };
-export type Diagram = { label: string; caption: string; steps: DiagramStep[] };
-
 const image = (name: string, caption: string) => ({ src: `/images/spots/${encodeURIComponent(name)}.png`, label: name, caption });
 
 const spotsSystems = [
@@ -41,16 +38,4 @@ export const spotsGalleries = {
     ],
   },
   system: { label: "Designing The System", slides: spotsSystems },
-};
-
-export const spotsDiagrams: Record<string, Diagram> = {
-  hypothesis: {
-    label: "Product Hypothesis",
-    caption: "The product hypothesis. A bet to test, not a research finding.",
-    steps: [
-      { label: "Discover", note: "Find inspiration" },
-      { label: "Save", note: "Keep context" },
-      { label: "Plan", note: "Make it actionable" },
-    ],
-  },
 };

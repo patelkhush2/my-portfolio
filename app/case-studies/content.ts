@@ -1,4 +1,4 @@
-import { type Diagram, spotsDiagrams, spotsGalleries } from "./galleries";
+import { spotsGalleries } from "./galleries";
 
 export type Asset = { id: string; title: string; instruction: string; format: string; src?: string; video?: boolean };
 export type Study = {
@@ -9,7 +9,6 @@ export type Study = {
   summary: string;
   cover: Asset;
   galleries: Record<string, { label: string; slides: { src: string; label: string; caption?: string; canvas?: boolean }[] }>;
-  diagrams?: Record<string, Diagram>;
   media: Record<string, Asset>;
   hidden?: boolean;
 };
@@ -29,7 +28,6 @@ export const studies: Study[] = [
       instruction: "Uses public/images/spots/spots-cover.png. Replace this file to update the cover.",
     },
     galleries: spotsGalleries,
-    diagrams: spotsDiagrams,
     media: {},
   },
   {
