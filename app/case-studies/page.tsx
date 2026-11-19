@@ -1,6 +1,8 @@
 import * as FadeIn from "@/components/motion/staggers/fade";
 
-import { CaseStudyList } from "./case-study-list";
+import Link from "next/link";
+
+import { visibleStudies } from "./content";
 
 export default function Page() {
   return (
@@ -14,7 +16,14 @@ export default function Page() {
         <h1>Case Studies</h1>
       </FadeIn.Item>
       <FadeIn.Item>
-        <CaseStudyList />
+        <div className="border-border border-t">
+          {visibleStudies.map((study) => (
+            <Link href={`/case-studies/${study.slug}`} key={study.slug} className="flex items-center justify-between gap-6 border-border border-b py-3">
+              <span>{study.name}</span>
+              <span className="text-gray-10">{study.year}</span>
+            </Link>
+          ))}
+        </div>
       </FadeIn.Item>
     </FadeIn.Container>
   );

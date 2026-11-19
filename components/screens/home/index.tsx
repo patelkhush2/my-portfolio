@@ -1,7 +1,8 @@
-import { CaseStudyList } from "@/app/case-studies/case-study-list";
 import { Footer } from "@/components/footer";
 import Link from "@/components/link";
 import * as FadeIn from "@/components/motion/staggers/fade";
+
+import NextLink from "next/link";
 
 import ImagesGrid from "./image-grid";
 import LiveStatus from "./live-status";
@@ -31,13 +32,7 @@ export default function Home({ projects }: { projects: Project[] }) {
       </FadeIn.Item>
       <Spacer />
       <FadeIn.Item>
-        <p>
-        I’m an independent designer working across web, product, and identity.
-
-I’m drawn to ideas that are still taking shape - figuring out what they should become, how they should feel, and how people should experience them.
-
-My work moves between concept, systems, interaction, and visual direction to make those ideas clear, distinct, and real.
-        </p>
+        <p>I’m a designer working across web and product. I like taking early ideas and making them into clear, distinct and real experiences.</p>
       </FadeIn.Item>
       <FadeIn.Item>
         <div className="mt-6">
@@ -52,10 +47,11 @@ My work moves between concept, systems, interaction, and visual direction to mak
         <ImagesGrid projects={projects} /> {/* 👈 Pass it down */}
       </FadeIn.Item>
       <FadeIn.Item>
-        <section aria-labelledby="case-studies" className="pb-10">
-          <h2 id="case-studies">Case studies</h2>
-          <CaseStudyList className="mt-6" />
-        </section>
+        <div className="border-border border-t pb-10">
+          <NextLink href="/case-studies" className="flex items-center justify-between gap-6 border-border border-b py-3">
+            <span>Case Studies</span>
+          </NextLink>
+        </div>
       </FadeIn.Item>
 
       <Spacer />
