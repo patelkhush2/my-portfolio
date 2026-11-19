@@ -10,6 +10,7 @@ export type Study = {
   cover: Asset;
   galleries: Record<string, { label: string; slides: { src: string; label: string; canvas?: boolean }[] }>;
   media: Record<string, Asset>;
+  hidden?: boolean;
 };
 
 export const studies: Study[] = [
@@ -37,6 +38,7 @@ export const studies: Study[] = [
   {
     slug: "forma",
     name: "Forma",
+    hidden: true,
     year: 2026,
     headline: "AI assistance. A deliberate edit.",
     summary: "AI Interaction · Scope, Preview, Apply",
@@ -87,3 +89,5 @@ export const studies: Study[] = [
     },
   },
 ];
+
+export const visibleStudies = studies.filter((study) => !study.hidden);

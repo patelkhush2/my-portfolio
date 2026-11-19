@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 import CaseStudy from "../case-study";
-import { studies } from "../content";
+import { visibleStudies as studies } from "../content";
 
 export function generateStaticParams() {
   return studies.map(({ slug }) => ({ slug }));

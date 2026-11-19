@@ -2,7 +2,7 @@ import * as FadeIn from "@/components/motion/staggers/fade";
 
 import Link from "next/link";
 
-import { studies } from "./content";
+import { visibleStudies } from "./content";
 
 export default function Page() {
   return (
@@ -17,7 +17,7 @@ export default function Page() {
       </FadeIn.Item>
       <FadeIn.Item>
         <div className="border-border border-t">
-          {studies.map((study) => (
+          {visibleStudies.map((study) => (
             <Link href={`/case-studies/${study.slug}`} key={study.slug} className="flex items-center justify-between gap-6 border-border border-b py-3">
               <span>{study.name}</span>
               <span className="text-gray-10">{study.year}</span>
