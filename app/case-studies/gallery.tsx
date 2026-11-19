@@ -5,7 +5,7 @@ import { useReducedMotion } from "framer-motion";
 import Image, { getImageProps } from "next/image";
 import { useCallback, useEffect, useRef, useState } from "react";
 
-type Slide = { src: string; label: string; canvas?: boolean };
+type Slide = { src: string; label: string; caption?: string; canvas?: boolean };
 
 function optimizedImage(slide: Slide) {
   return getImageProps({ src: slide.src, alt: slide.label, width: 1920, height: 1080, quality: 85, sizes: "(max-width: 768px) calc(100vw - 96px), 624px" })
@@ -15,9 +15,6 @@ function optimizedImage(slide: Slide) {
 export default function Gallery({ slides, label }: { slides: Slide[]; label: string }) {
   const [active, setActive] = useState(0);
   const [open, setOpen] = useState(false);
-  const [playing, setPlaying] = useState(true);
-  const [hovered, setHovered] = useState(false);
-  const [focused, setFocused] = useState(false);
   const [visible, setVisible] = useState(false);
   const container = useRef<HTMLElement | null>(null);
   const reducedMotion = useReducedMotion();
@@ -74,13 +71,6 @@ export default function Gallery({ slides, label }: { slides: Slide[]; label: str
     return () => observer.disconnect();
   }, []);
   useEffect(() => {
-    if (!visible || !playing || hovered || focused || open || reducedMotion || slides.length < 2) return;
-    const timer = window.setInterval(() => {
-      if (!document.hidden) void move(1);
-    }, 3000);
-    return () => window.clearInterval(timer);
-  }, [visible, playing, hovered, focused, open, reducedMotion, slides.length, move]);
-  useEffect(() => {
     if (!visible) return;
     const timer = window.setTimeout(() => {
       const neighbor = slides[(active + 1) % slides.length];
@@ -101,18 +91,7 @@ export default function Gallery({ slides, label }: { slides: Slide[]; label: str
 
   return (
     <Dialog.Root open={open} onOpenChange={setOpen}>
-      <section
-        ref={container}
-        className="my-6"
-        aria-roledescription="carousel"
-        aria-label={label}
-        onMouseEnter={() => setHovered(true)}
-        onMouseLeave={() => setHovered(false)}
-        onFocusCapture={() => setFocused(true)}
-        onBlurCapture={(event) => {
-          if (!event.currentTarget.contains(event.relatedTarget)) setFocused(false);
-        }}
-      >
+      <section ref={container} className="my-6" aria-roledescription="carousel" aria-label={label}>
         <div
           className="relative aspect-video w-full overflow-hidden rounded-large border border-border bg-white"
           style={{ touchAction: "pan-y", contain: "layout paint", isolation: "isolate" }}
@@ -157,22 +136,14 @@ export default function Gallery({ slides, label }: { slides: Slide[]; label: str
             </button>
           </Dialog.Trigger>
         </div>
-        <div className="mt-2 flex items-center justify-end gap-3">
-          <span className="sr-only" aria-live={playing && !hovered && !focused && !open ? "off" : "polite"} aria-atomic="true">
-            {active + 1} / {slides.length} · {slide.label}
-          </span>
+        <div className="mt-2 flex items-center justify-between gap-3">
+          <p className="min-w-0 truncate text-gray-10 text-sm" aria-live="polite" aria-atomic="true">
+            <span className="tabular-nums">
+              {active + 1}/{slides.length}
+            </span>
+            <span className="ml-3">{slide.caption ?? slide.label}</span>
+          </p>
           <div className="flex shrink-0 gap-2">
-            {!reducedMotion && (
-              <button
-                type="button"
-                onClick={() => setPlaying((current) => !current)}
-                aria-label={playing ? "Pause slideshow" : "Play slideshow"}
-                aria-pressed={!playing}
-                className="flex h-10 w-10 items-center justify-center rounded-full border border-border hover:bg-gray-3 focus-visible:outline focus-visible:outline-2"
-              >
-                {playing ? "Ⅱ" : "▶"}
-              </button>
-            )}
             <button
               type="button"
               onClick={() => move(-1)}

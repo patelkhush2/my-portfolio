@@ -8,7 +8,7 @@ export type Study = {
   headline: string;
   summary: string;
   cover: Asset;
-  galleries: Record<string, { label: string; slides: { src: string; label: string; canvas?: boolean }[] }>;
+  galleries: Record<string, { label: string; slides: { src: string; label: string; caption?: string; canvas?: boolean }[] }>;
   media: Record<string, Asset>;
   hidden?: boolean;
 };
