@@ -15,7 +15,7 @@ const spotsSystems = [
 export const spotsGalleries = {
   discovery: {
     label: "Discovery",
-    slides: [image("web - home/explore default", "Explore Feed"), image("web - home/explore 5", "Save To A List"), image("list page", "List To Plan")],
+    slides: [image("web - home/explore default", "Explore Feed"), image("web - home/explore 5", "Save To A List"), image("list page 3", "List Page")],
   },
   planning: {
     label: "Conversational Planning",
