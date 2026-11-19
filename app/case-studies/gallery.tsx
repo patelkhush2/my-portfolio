@@ -12,6 +12,17 @@ function optimizedImage(slide: Slide) {
     .props;
 }
 
+// Every slide shares one fixed frame. Screens are pinned to the top so the nav bar never shifts between slides.
+function frameStyle(slide: Slide) {
+  const fill = slide.canvas === false;
+  return {
+    inset: fill ? "0" : "8%",
+    width: fill ? "100%" : "84%",
+    height: fill ? "100%" : "84%",
+    objectPosition: slide.canvas === true ? "center" : "top",
+  };
+}
+
 export default function Gallery({ slides, label }: { slides: Slide[]; label: string }) {
   const [active, setActive] = useState(0);
   const [open, setOpen] = useState(false);
@@ -38,9 +49,7 @@ export default function Gallery({ slides, label }: { slides: Slide[]; label: str
         image.srcset = optimized.srcSet || "";
         image.src = optimized.src;
         image.alt = slides[next].label;
-        image.style.inset = slides[next].canvas === false ? "0" : "8%";
-        image.style.width = slides[next].canvas === false ? "100%" : "84%";
-        image.style.height = slides[next].canvas === false ? "100%" : "84%";
+        Object.assign(image.style, frameStyle(slides[next]));
         await image.decode();
         image.style.zIndex = "2";
         image.style.willChange = "opacity";
@@ -127,9 +136,7 @@ export default function Gallery({ slides, label }: { slides: Slide[]; label: str
                   className="absolute block object-contain"
                   style={{
                     zIndex: layer === 0 ? 1 : 0,
-                    inset: slides[0].canvas === false ? "0" : "8%",
-                    width: slides[0].canvas === false ? "100%" : "84%",
-                    height: slides[0].canvas === false ? "100%" : "84%",
+                    ...frameStyle(slides[0]),
                   }}
                 />
               ))}
