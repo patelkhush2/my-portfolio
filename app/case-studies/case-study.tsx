@@ -10,6 +10,7 @@ import { MDXRemote } from "next-mdx-remote/rsc";
 import { Media } from "./components";
 import Gallery from "./gallery";
 import { parseCaseStudy } from "./structure";
+import { Figure, Flow, Hero } from "./visuals";
 
 export default function CaseStudy({ study }: { study: Study }) {
   const source = fs.readFileSync(path.join(process.cwd(), "content/case-studies", `${study.slug}.mdx`), "utf8");
@@ -19,6 +20,21 @@ export default function CaseStudy({ study }: { study: Study }) {
       const gallery = study.galleries[name];
       if (!gallery) throw new Error(`Unknown gallery ${name} in ${study.slug}.`);
       return <Gallery slides={gallery.slides} label={gallery.label} />;
+    },
+    Hero: ({ name }: { name: string }) => {
+      const gallery = study.galleries[name];
+      if (!gallery) throw new Error(`Unknown hero ${name} in ${study.slug}.`);
+      return <Hero slides={gallery.slides} label={gallery.label} />;
+    },
+    Figure: ({ name }: { name: string }) => {
+      const slide = study.galleries[name]?.slides[0];
+      if (!slide) throw new Error(`Unknown figure ${name} in ${study.slug}.`);
+      return <Figure slide={slide} />;
+    },
+    Diagram: ({ name }: { name: string }) => {
+      const diagram = study.diagrams?.[name];
+      if (!diagram) throw new Error(`Unknown diagram ${name} in ${study.slug}.`);
+      return <Flow diagram={diagram} />;
     },
     Media: ({ name }: { name: string }) => {
       const asset = study.media[name];

@@ -1,4 +1,4 @@
-import { spotsDecisions, spotsListIterations, spotsSystems } from "./galleries";
+import { type Diagram, spotsDiagrams, spotsGalleries } from "./galleries";
 
 export type Asset = { id: string; title: string; instruction: string; format: string; src?: string; video?: boolean };
 export type Study = {
@@ -9,6 +9,7 @@ export type Study = {
   summary: string;
   cover: Asset;
   galleries: Record<string, { label: string; slides: { src: string; label: string; caption?: string; canvas?: boolean }[] }>;
+  diagrams?: Record<string, Diagram>;
   media: Record<string, Asset>;
   hidden?: boolean;
 };
@@ -27,13 +28,8 @@ export const studies: Study[] = [
       format: "PNG · 1920 × 1080 supported",
       instruction: "Uses public/images/spots/spots-cover.png. Replace this file to update the cover.",
     },
-    galleries: {
-      discovery: { label: "Discovery", slides: spotsDecisions[0] },
-      planning: { label: "Conversational Planning", slides: spotsDecisions[1] },
-      itinerary: { label: "From Conversation To Itinerary", slides: spotsDecisions[2] },
-      system: { label: "Designing The System", slides: spotsSystems },
-      lists: { label: "List Page Iterations", slides: spotsListIterations },
-    },
+    galleries: spotsGalleries,
+    diagrams: spotsDiagrams,
     media: {},
   },
   {
