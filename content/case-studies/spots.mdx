@@ -8,15 +8,21 @@ Scope: Product Architecture, UX/UI, Interaction Design, Visual System<br />
 Team: Founder, Product Managers & Engineers<br />
 Status: In progress, not yet shipped
 
-Spots turns the places people save into trips they can actually take. I'm the sole product designer on a small NYC startup team, working with the founder, product managers and engineers across discovery, planning and itineraries.
+Spots turns the places people save into trips they can actually take.
+
+I'm the sole product designer on a small NYC startup team, working with the founder, product managers and engineers. I designed the whole product, from discovery to planning to itineraries.
 
 ## 01 / The Opportunity
 
 ### Finding Places Is Easy. Making Plans Is Harder.
 
-People save places all the time, from friends, creators and their own browsing. But when it's time to plan a trip, those saves sit in one app while the actual planning happens across notes, spreadsheets and browser tabs. Saving feels like progress, but nothing carries forward.
+Travel ideas come from everywhere: a friend's restaurant, a creator's hotel, a list of places saved for someday.
 
-Two things make this harder than building a better list. Trips start in different places: a destination, a budget, a friend's recommendations, or just a few free days. And a plan is never right the first time. Spots started from one question: what if a saved list could be the first draft of a trip? Every decision below comes back to it.
+But saving a place doesn't bring you any closer to going. When it's time to plan, those saves sit in one app while the real planning happens across notes, spreadsheets and browser tabs. Along the way, the context gets lost: who recommended a place, and why it was worth saving.
+
+Two things make this harder than building a better list. Trips start in different places: a destination, a budget, a friend's list, or just a few free days. And no plan is right the first time, so people need to change it without starting over.
+
+So Spots started from one question: what if a saved list could be the first draft of a trip? That's the product's hypothesis, shown below. Every decision in this case study comes back to it.
 
 <Diagram name="hypothesis" />
 
@@ -24,27 +30,41 @@ Two things make this harder than building a better list. Trips start in differen
 
 ### Three Activities. One Thread.
 
-I structured Spots around three activities, because each one asks a different question. Discover asks where is worth going. Plan asks what this trip should look like. Organize asks what happens on each day.
+I split Spots into three activities, because each one answers a different question. Discover: where is worth going? Plan: what should this trip look like? Organize: what happens on each day?
 
-The harder part was deciding what carries between them. A saved place has to arrive in planning with its context, like who recommended it and what kind of place it is. A plan has to arrive in the schedule as something you can edit, not a block of text.
+The hard part wasn't designing each one. It was deciding what carries between them. A saved place has to arrive in planning with its context, like who recommended it and what kind of place it is. A plan has to arrive in the schedule as something you can edit, not a block of text.
+
+Scope was decided as a team, with the founder and product managers. We merged Home and Explore into one Discover feed, hid social features for V1, and set the core journey as Discover → Save → Plan → Book. Later, we narrowed V1 to chat, creator profiles and lists, and booking: enough to test whether people will book travel from creator recommendations when AI makes planning and booking easier. I designed each of those changes.
 
 ## 03 / Designing the Experience
 
 ### Saving Shouldn't Be A Dead End.
 
-A list was something you browsed, with no path into a plan. So I made every list a starting point. Open any list and planning is one step away, already using those places as context. Lists lose some of their feel as finished collections and become raw material instead. That's intentional: a saved list becomes the first draft of a trip.
+In most apps, a list is where saved places end up. You can browse it, but it doesn't lead anywhere. I designed every list to be a starting point instead. In chat, a saved list can be added as context, so planning starts from places you've already chosen.
+
+The slideshow follows that path. The explore feed mixes places and creator lists, with categories along the top. Saving takes one step: pick a list or start a new one. A list page keeps its title, creator, place count and share action together in one header. Opening a single spot shows what you need to decide: photos, a map with prices, who recommended it and a way to book.
+
+The trade-off is that lists feel less like finished collections and more like raw material. I accepted that, because a saved list becomes the first draft of a trip.
 
 <Gallery name="discovery" />
 
 ### Start From Whatever You Have.
 
-Search fields assume you already know the destination and dates. A blank chat assumes you know what to ask. Neither fits a trip that starts with a screenshot and a friend's list. So I combined them. A short trip bar holds the facts: where, how many days, how many travelers. The chat input accepts whatever you already have, whether that's an image, a saved list or a PDF of notes. Suggested prompts show what's possible before you type. An open input gives less guidance than a step-by-step form, which is why the trip bar and prompts are there: just enough structure to get started. The result is that you can start planning without organizing anything first.
+Search fields assume you already know where and when. A blank chat assumes you know what to ask. Neither fits a trip that starts with a screenshot and a friend's list.
+
+So I combined them. On the planning home, a short trip bar holds the facts: where, how many days, how many travelers. Suggested prompts show what's possible before you type. The chat input takes whatever you already have, like an image, a saved list or a PDF of notes. Pick a destination and the suggestions change to that place, while your attachments stay put.
+
+An open input gives less guidance than a step-by-step form. That's why the trip bar and prompts stay on screen: just enough structure to get started. The result is that you can start planning without organizing anything first.
 
 <Gallery name="planning" />
 
 ### Refine The Plan, Don't Rebuild It.
 
-A long chat reply is hard to compare and harder to change, and re-prompting to swap one hotel throws away your progress. So answers become interface. You compare a few trip options at a glance, then open one as an itinerary you can review day by day. Each part of the plan, like where you're staying, shows its cost next to quick refinements, so you can change one piece without starting over. That makes the interface busier than a plain chat reply, so refinements only appear on the part of the plan they change. Conversation creates the plan, and small, specific changes shape it.
+A long chat reply is hard to compare and harder to change. Re-prompting to swap one hotel throws away your progress. So I turned answers into interface.
+
+The slideshow walks through one trip. A request returns a few trip options to compare at a glance. Opening one turns it into an itinerary with flights, stays, experiences and food in one panel. Each part, like where you're staying, shows its cost next to quick refinements, so you can change one piece without starting over. The day schedule lays out each day by time, and the full trip view puts flights, budget, stays and activities on one screen.
+
+This makes the interface busier than a plain chat reply. To keep it manageable, refinements only appear on the part of the plan they change. Conversation creates the plan, and small, specific changes shape it.
 
 <Gallery name="itinerary" />
 
@@ -52,7 +72,13 @@ A long chat reply is hard to compare and harder to change, and re-prompting to s
 
 ### One Way To Plan, Everywhere.
 
-I explored many home, discovery and navigation layouts, shown below. The direction that held up was the one with the fewest entry points. Top-level navigation stays at two items, and the same planning input appears wherever a trip can begin, whether that's on a list, on a place or in chat. There's one way to plan, not three. Detail views, like a list or a stay, open in the same side panel, so a new screen still feels familiar.
+Spots has a lot in it: places, lists, chat, trips and bookings. The risk was a product with too many ways in. I explored many home, discovery and navigation layouts, shown in the working file below.
+
+I chose the direction with the fewest entry points. Top-level navigation stays at two items, and every trip starts from the same chat input, where a saved list, an image or notes can be added as context. There's one way to plan, not three. Detail views, like a list or a stay, open in the same side panel, so a new screen still feels familiar.
+
+Fewer entry points means fewer shortcuts. I chose that for less confusion: wherever you are, planning works the same way.
+
+The rest of the slideshow shows the shared pieces that make this repeatable: context widgets, the trip bar and filters, chat input states, booking cards, and guest and flight details.
 
 <Gallery name="system" />
 
@@ -62,4 +88,6 @@ I explored many home, discovery and navigation layouts, shown below. The directi
 
 As the only designer, I found that most of the work wasn't on individual screens. It was deciding what carries from one screen to the next: which context a saved place brings into planning, which controls stay the same, and when the interface should change shape.
 
-The outcome so far is a handover. I delivered the designs, along with the architecture of the flows and features, to the product team and engineers to build and release an MVP. Spots hasn't shipped or been tested with users yet, so I can't claim user outcomes. The first two things I'd test are whether people understand that a saved list can become a trip, and whether quick refinements feel faster than re-prompting. Those answers would tell me whether the core idea holds: making the distance between finding a place and going there smaller.
+The outcome so far is a handover. I delivered the designs to the product team and engineers, along with the architecture of the flows and features needed to build and release an MVP.
+
+Spots hasn't shipped or been tested with users, so I can't claim user results yet. The first two things I'd test: do people understand that a saved list can become a trip, and do quick refinements feel faster than re-prompting? The answers would show whether the core idea holds: making the distance between finding a place and going there smaller.
