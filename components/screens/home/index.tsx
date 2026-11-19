@@ -1,3 +1,4 @@
+import { CaseStudyList } from "@/app/case-studies/case-study-list";
 import { Footer } from "@/components/footer";
 import Link from "@/components/link";
 import * as FadeIn from "@/components/motion/staggers/fade";
@@ -49,6 +50,12 @@ My work moves between concept, systems, interaction, and visual direction to mak
       </FadeIn.Item>
       <FadeIn.Item>
         <ImagesGrid projects={projects} /> {/* 👈 Pass it down */}
+      </FadeIn.Item>
+      <FadeIn.Item>
+        <section aria-labelledby="case-studies" className="pb-10">
+          <h2 id="case-studies">Case studies</h2>
+          <CaseStudyList className="mt-6" />
+        </section>
       </FadeIn.Item>
 
       <Spacer />
