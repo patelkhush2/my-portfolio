@@ -2,8 +2,6 @@ import { Footer } from "@/components/footer";
 import Link from "@/components/link";
 import * as FadeIn from "@/components/motion/staggers/fade";
 
-import NextLink from "next/link";
-
 import ImagesGrid from "./image-grid";
 import LiveStatus from "./live-status";
 
@@ -45,13 +43,6 @@ export default function Home({ projects }: { projects: Project[] }) {
       </FadeIn.Item>
       <FadeIn.Item>
         <ImagesGrid projects={projects} /> {/* 👈 Pass it down */}
-      </FadeIn.Item>
-      <FadeIn.Item>
-        <div className="border-border border-t pb-10">
-          <NextLink href="/case-studies" className="flex items-center justify-between gap-6 border-border border-b py-3">
-            <span>Case Studies</span>
-          </NextLink>
-        </div>
       </FadeIn.Item>
 
       <Spacer />
