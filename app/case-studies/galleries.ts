@@ -13,18 +13,21 @@ const spotsSystems = [
 ];
 
 export const spotsGalleries = {
-  hero: {
-    label: "From Discovery To Itinerary",
-    slides: [image("web - home/explore default", "Discovery Home"), image("chat 11 itinerary pop", "Itinerary Overview")],
-  },
-  opportunity: { label: "Creator Profile", slides: [image("creator profile", "Creator Profile: Recommendations As A Starting Point")] },
   discovery: {
     label: "Discovery",
-    slides: [image("web - home/explore 5", "Save To A List"), image("list page 3", "Collected List"), image("hotel - booking", "Stay Details And Booking")],
+    slides: [
+      image("web - home/explore default", "Explore Feed"),
+      image("web - home/explore 5", "Save To A List"),
+      image("hotel - booking", "Stay Details And Booking"),
+    ],
   },
   planning: {
     label: "Conversational Planning",
-    slides: [image("chat default", "Before: Planning Home"), image("chat attached state", "After: Context Attached")],
+    slides: [
+      image("chat default", "Planning Home"),
+      image("chat attached state", "Contextual Input"),
+      image("chat selected+attached state", "Destination Context"),
+    ],
   },
   itinerary: {
     label: "From Conversation To Itinerary",
@@ -33,6 +36,7 @@ export const spotsGalleries = {
       image("chat 11 itinerary pop", "Itinerary Overview"),
       image("chat accommodation prompts", "Accommodation Refinements"),
       image("chat 11 itinerary schedule", "Day Schedule"),
+      image("chat 11 itinerary full trip view 2", "Full Trip View"),
     ],
   },
   system: { label: "Designing The System", slides: spotsSystems },
@@ -46,15 +50,6 @@ export const spotsDiagrams: Record<string, Diagram> = {
       { label: "Discover", note: "Find inspiration" },
       { label: "Save", note: "Keep context" },
       { label: "Plan", note: "Make it actionable" },
-    ],
-  },
-  activities: {
-    label: "Three Activities",
-    caption: "Three activities, with context carried from one to the next.",
-    steps: [
-      { label: "Discover", note: "Where is worth going?", src: image("web - home/explore default", "").src },
-      { label: "Plan", note: "What should this trip look like?", src: image("chat default", "").src },
-      { label: "Organize", note: "What happens on each day?", src: image("chat 11 itinerary schedule", "").src },
     ],
   },
 };
